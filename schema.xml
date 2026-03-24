@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml-diagram>
+    <entities>
+        <entity name="User1">
+            <attribute name="UserID" type="integer" />
+            <attribute name="Name" type="string" />
+            <relationship name="Réservation" cardinality="1..*" />
+            <relationship name="Langue" cardinality="0..1" />
+        </entity>
+        <entity name="Admin">
+            <attribute name="AdminID" type="integer" />
+            <attribute name="Name" type="string" />
+            <relationship name="Réservation" cardinality="1..*" />
+        </entity>
+        <entity name="Réservation">
+            <attribute name="ReservationID" type="integer" />
+            <attribute name="Date" type="date" />
+            <relationship name="Événement" cardinality="1..1" />
+            <relationship name="Adresse" cardinality="1..1" />
+            <relationship name="Paiement" cardinality="1..1" />
+        </entity>
+        <entity name="Événement">
+            <attribute name="EventID" type="integer" />
+            <attribute name="Title" type="string" />
+            <relationship name="Guide" cardinality="0..*" />
+            <relationship name="Tarif" cardinality="1..*" />
+        </entity>
+        <entity name="Guide">
+            <attribute name="GuideID" type="integer" />
+            <attribute name="Name" type="string" />
+            <relationship name="Événement" cardinality="0..*" />
+        </entity>
+        <entity name="Adresse">
+            <attribute name="AddressID" type="integer" />
+            <attribute name="Location" type="string" />
+        </entity>
+        <entity name="Tarif">
+            <attribute name="TarifID" type="integer" />
+            <attribute name="Price" type="decimal" />
+            <relationship name="Événement" cardinality="1..1" />
+        </entity>
+        <entity name="Paiement">
+            <attribute name="PaymentID" type="integer" />
+            <attribute name="Amount" type="decimal" />
+        </entity>
+        <entity name="Langue">
+            <attribute name="LangueID" type="integer" />
+            <attribute name="Language" type="string" />
+        </entity>
+    </entities>
+</uml-diagram>
