@@ -1,0 +1,301 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Morocco-inspired color palette */
+    --background: 35 30% 97%;
+    --foreground: 25 30% 15%;
+
+    --card: 35 25% 95%;
+    --card-foreground: 25 30% 15%;
+
+    --popover: 35 25% 98%;
+    --popover-foreground: 25 30% 15%;
+
+    /* Sand/Ochre primary */
+    --primary: 30 60% 45%;
+    --primary-foreground: 35 30% 98%;
+
+    /* Palm green secondary */
+    --secondary: 150 35% 35%;
+    --secondary-foreground: 35 30% 98%;
+
+    /* Earth brown muted */
+    --muted: 30 20% 90%;
+    --muted-foreground: 25 15% 45%;
+
+    /* Terracotta accent */
+    --accent: 15 65% 50%;
+    --accent-foreground: 35 30% 98%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 30 20% 85%;
+    --input: 30 20% 88%;
+    --ring: 30 60% 45%;
+
+    --radius: 0.75rem;
+
+    /* Custom Morocco colors */
+    --sand: 35 45% 85%;
+    --sand-dark: 30 40% 70%;
+    --palm: 150 35% 35%;
+    --palm-light: 150 30% 50%;
+    --terracotta: 15 65% 50%;
+    --terracotta-dark: 15 60% 40%;
+    --ochre: 30 70% 55%;
+    --earth: 25 35% 30%;
+
+    /* Glass effect */
+    --glass-bg: 35 30% 98% / 0.7;
+    --glass-border: 35 30% 90% / 0.5;
+    --glass-shadow: 25 30% 15% / 0.1;
+  }
+
+  .dark {
+    --background: 25 25% 10%;
+    --foreground: 35 25% 95%;
+
+    --card: 25 25% 14%;
+    --card-foreground: 35 25% 95%;
+
+    --popover: 25 25% 12%;
+    --popover-foreground: 35 25% 95%;
+
+    --primary: 30 55% 55%;
+    --primary-foreground: 25 25% 10%;
+
+    --secondary: 150 30% 45%;
+    --secondary-foreground: 25 25% 10%;
+
+    --muted: 25 20% 20%;
+    --muted-foreground: 35 15% 60%;
+
+    --accent: 15 55% 55%;
+    --accent-foreground: 25 25% 10%;
+
+    --destructive: 0 65% 55%;
+    --destructive-foreground: 35 25% 95%;
+
+    --border: 25 20% 22%;
+    --input: 25 20% 22%;
+    --ring: 30 55% 55%;
+
+    --sand: 35 30% 25%;
+    --sand-dark: 30 25% 35%;
+    --palm: 150 25% 40%;
+    --palm-light: 150 30% 55%;
+    --terracotta: 15 55% 55%;
+    --terracotta-dark: 15 50% 45%;
+    --ochre: 30 60% 50%;
+    --earth: 25 20% 70%;
+
+    --glass-bg: 25 25% 15% / 0.7;
+    --glass-border: 25 20% 30% / 0.5;
+    --glass-shadow: 0 0% 0% / 0.3;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'DM Sans', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant Garamond', serif;
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+  .container {
+    @apply px-4 md:px-6 lg:px-8 mx-auto max-w-7xl;
+  }
+  
+  .section {
+    @apply py-16 md:py-24 lg:py-32;
+  }
+
+  /* Glassmorphism cards */
+  .glass-card {
+    @apply backdrop-blur-xl border shadow-xl;
+    background: hsl(var(--glass-bg));
+    border-color: hsl(var(--glass-border));
+    box-shadow: 0 8px 32px hsl(var(--glass-shadow));
+  }
+
+  .glass-card-strong {
+    @apply backdrop-blur-2xl border shadow-2xl;
+    background: hsl(var(--glass-bg));
+    border-color: hsl(var(--glass-border));
+    box-shadow: 0 16px 48px hsl(var(--glass-shadow));
+  }
+
+  /* Morocco-style buttons */
+  .btn-morocco {
+    @apply relative overflow-hidden rounded-full px-8 py-3 font-medium transition-all duration-500;
+    @apply bg-primary text-primary-foreground;
+    @apply hover:shadow-lg hover:shadow-primary/25 hover:scale-[1.02];
+    @apply active:scale-[0.98];
+  }
+
+  .btn-morocco-outline {
+    @apply relative overflow-hidden rounded-full px-8 py-3 font-medium transition-all duration-500;
+    @apply border-2 border-primary text-primary bg-transparent;
+    @apply hover:bg-primary hover:text-primary-foreground hover:shadow-lg hover:shadow-primary/25;
+    @apply active:scale-[0.98];
+  }
+
+  .btn-secondary-morocco {
+    @apply relative overflow-hidden rounded-full px-8 py-3 font-medium transition-all duration-500;
+    @apply bg-secondary text-secondary-foreground;
+    @apply hover:shadow-lg hover:shadow-secondary/25 hover:scale-[1.02];
+    @apply active:scale-[0.98];
+  }
+
+  /* Gradient backgrounds */
+  .gradient-morocco {
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 50%, hsl(var(--secondary)) 100%);
+  }
+
+  .gradient-sand {
+    background: linear-gradient(180deg, hsl(var(--sand)) 0%, hsl(var(--background)) 100%);
+  }
+
+  .gradient-overlay {
+    background: linear-gradient(180deg, transparent 0%, hsl(var(--background) / 0.8) 100%);
+  }
+
+  /* Text gradients */
+  .text-gradient-morocco {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
+  }
+
+  /* Animations */
+  .animate-fade-up {
+    animation: fadeUp 0.8s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.5s ease-out forwards;
+  }
+
+  .animate-slide-in-right {
+    animation: slideInRight 0.6s ease-out forwards;
+  }
+
+  /* Hover effects */
+  .hover-lift {
+    @apply transition-all duration-500 ease-out;
+    @apply hover:-translate-y-2 hover:shadow-2xl;
+  }
+
+  .hover-glow {
+    @apply transition-all duration-500;
+    @apply hover:shadow-[0_0_30px_hsl(var(--primary)/0.3)];
+  }
+
+  /* Parallax */
+  .parallax-slow {
+    will-change: transform;
+    transition: transform 0.1s linear;
+  }
+
+  /* Custom scrollbar */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+    border-radius: 4px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary) / 0.5);
+    border-radius: 4px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary));
+  }
+}
+
+@layer utilities {
+  /* Stagger animations */
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+  .stagger-5 { animation-delay: 0.5s; }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
